@@ -1,0 +1,49 @@
+Analyze a resume against a job description using LLM-extracted insights and the resume-advisor.md skill.
+
+IMPORTANT AGENT WORKFLOW:
+
+1. First use read.ts to read the resume file provided by the user.
+2. Use the job description provided in the user prompt.
+3. The LLM should semantically analyze:
+   - resume skills
+   - resume projects
+   - project technical depth
+   - project strengths against the JD
+   - project weaknesses against the JD
+   - JD requirements
+4. The LLM should extract:
+   - resume summary
+   - JD summary
+   - matched skills
+   - missing skills
+   - project strengths
+   - project weaknesses
+5. The LLM should apply resume-advisor.md before calling this tool.
+6. The LLM should generate advisorRecommendations using resume-advisor.md.
+7. Then call this tool with the extracted structured information.
+
+The resume-advisor.md skill is responsible for producing clearer technical advice, including:
+- how to improve existing resume project descriptions
+- how to honestly include missing JD skills in existing projects
+- whether a new project is necessary to close a skill gap
+- what quality project ideas would best match the JD
+- concrete resume bullet suggestions
+
+This tool is responsible ONLY for:
+- structured evaluation
+- scoring
+- drawbacks
+- strengths
+- final formatted output
+
+This tool should NOT manually parse raw resume files or perform keyword extraction.
+
+Use this tool whenever:
+- user wants resume vs JD comparison
+- user wants ATS-style analysis
+- user wants resume improvement suggestions
+- user wants skill gap analysis
+- user wants project-level resume advice
+- user wants to know resume strengths and weaknesses
+
+Always prefer this tool over manual structured resume evaluation.

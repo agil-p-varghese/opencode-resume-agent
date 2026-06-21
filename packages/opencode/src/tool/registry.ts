@@ -1,3 +1,4 @@
+import { ResumeAnalyserTool } from "./resume-analyser"
 import { PlanExitTool } from "./plan"
 import { Session } from "@/session/session"
 import { QuestionTool } from "./question"
@@ -127,6 +128,7 @@ export const layer: Layer.Layer<
     const websearch = yield* WebSearchTool
     const shell = yield* ShellTool
     const globtool = yield* GlobTool
+    const resumeanalysertool = yield* ResumeAnalyserTool
     const writetool = yield* WriteTool
     const edit = yield* EditTool
     const greptool = yield* GrepTool
@@ -227,6 +229,7 @@ export const layer: Layer.Layer<
           shell: Tool.init(shell),
           read: Tool.init(read),
           glob: Tool.init(globtool),
+          resumeanalyser: Tool.init(resumeanalysertool),
           grep: Tool.init(greptool),
           edit: Tool.init(edit),
           write: Tool.init(writetool),
@@ -249,6 +252,7 @@ export const layer: Layer.Layer<
             tool.shell,
             tool.read,
             tool.glob,
+            tool.resumeanalyser,
             tool.grep,
             tool.edit,
             tool.write,
